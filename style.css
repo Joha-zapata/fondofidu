@@ -202,3 +202,11 @@ a img.aligncenter {
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
 }
+
+.rayita {
+    border-left: 2px solid #000;
+}
+
+.btn-menu-lateral:after{
+    display: none !important;
+}

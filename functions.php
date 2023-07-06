@@ -500,6 +500,7 @@ if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus(
 		array(
 			'main-menu'   => 'Main Navigation Menu',
+			'menu-lateral'   => 'Menú Lateral',
 			'footer-menu' => 'Footer Menu',
 		)
 	);
