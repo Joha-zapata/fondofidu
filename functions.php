@@ -500,6 +500,7 @@ if ( function_exists( 'register_nav_menus' ) ) {
 	register_nav_menus(
 		array(
 			'main-menu'   => 'Main Navigation Menu',
+			'menu-lateral'   => 'Menú Lateral',
 			'footer-menu' => 'Footer Menu',
 		)
 	);
@@ -542,3 +543,48 @@ function fondofidu_scripts_loader() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'fondofidu_scripts_loader' );
+
+if( function_exists('acf_add_options_page') ) {
+    
+    acf_add_options_page(array(
+        'page_title'    => 'Opciones generales',
+        'menu_title'    => 'Opciones generales',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+    
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Encabezado',
+        'menu_title'    => 'Header',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+    
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Pie de página',
+        'menu_title'    => 'Footer',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+    
+}
+
+
+function get_breadcrumb() {
+	echo '<a href="'.home_url().'" rel="nofollow">Inicio</a>';
+	if (is_category() || is_single()){
+		echo '  <span class="px-2">></span>  ';
+		the_category (' • ');
+			if (is_single()) {
+				echo '  <span class="px-2">></span>  ';
+				the_title();
+			}
+} elseif (is_page()) {
+		echo '  <span class="px-2">></span>  ';
+		echo the_title();
+	} elseif (is_search()) {
+		echo '  <span class="px-2">></span>  ';
+		echo '<em>';
+		echo the_search_query();
+		echo '</em>';
+	}
+}

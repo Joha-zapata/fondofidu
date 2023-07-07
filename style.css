@@ -4,7 +4,7 @@ Theme URI: https://them.es/starter
 Author: Ares Soluciones
 Author URI: https://aressoluciones.com/
 Description: Plantilla para Fondo Fiduprevisora
-Version: 3.4.1
+Version: 1.1
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 7.2
@@ -17,6 +17,163 @@ Text Domain: fondofidu
 /* Don't overwrite this file. Compile "/assets/main.scss" to "/assets/dist/main.css" */
 
 /* From http://codex.wordpress.org/CSS */
+
+
+@font-face {
+    font-family: "Gotham";
+    -moz-font-family: "Gotham";
+	font-weight: "400";
+    src: url("fonts/GothamMedium.ttf");
+    -moz-src: url("fonts/GothamMedium.ttf");
+}
+
+@font-face {
+    font-family: "Gotham";
+    -moz-font-family: "Gotham";
+	font-weight: "500";
+    src: url("fonts/GothamBook.ttf");
+    -moz-src: url("fonts/GothamBook.ttf");
+}
+
+@font-face {
+    font-family: "Gotham";
+    -moz-font-family: "Gotham";
+	font-weight: "600";
+    src: url("fonts/GothamBold.ttf");
+    -moz-src: url("fonts/GothamBold.ttf");
+}
+
+@font-face {
+    font-family: "Gotham";
+    -moz-font-family: "Gotham";
+	font-weight: "300";
+    src: url("fonts/GothamLight.ttf");
+    -moz-src: url("fonts/GothamLight.ttf");
+}
+
+
+/***********Globals****************/
+.breadcrumb {
+    margin-bottom: 0 !important;
+}
+.breadcrumb,
+.breadcrumb a,
+.breadcrumb span{
+	font-weight: 400;
+	color: #898989 !important;
+}
+
+html, body{
+	font-family: 'Gotham', Arial, Helvetica, sans-serif !important;
+	color: #898989 !important;
+}
+strong{
+	font-family: 'Gotham-semi-bold' Arial, Helvetica, sans-serif !important;
+
+}
+h1.entry-title{
+	font-weight: 700;
+
+}
+.titulo-con-logo div {
+    display: inline-block;
+}
+.titulo-con-logo{
+	position: relative;
+}
+.titulo-con-logo:after {
+    position: absolute;
+    content: "";
+    width: 250px;
+    height: 2px;
+    background-color: #154A8B;
+    bottom: 0;
+    left: 0;
+}
+.titulo-de-logo h2 {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    color: #154A8B;
+	margin-bottom: 0;
+}
+
+/***********Header************/
+#navbar .nav-link,
+.dropdown-menu li a{
+	font-weight: 600 !important;
+	font-size: 0.9rem !important;
+	color: #000;
+}
+.dropdown-menu ul {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.dropdown-menu ul li{
+	list-style: none;
+}
+
+/*************Footer*************/
+#footer .menu-item a[aria-current=page] {
+    color: #154a8b !important;
+}
+
+#footer .nav-link {
+    font-weight: 500 !important;
+    color: #154a8b;
+    font-size: 0.9rem;
+}
+
+
+.redes-sociales i {
+    font-size: 1.2rem;
+    background-color: #154A8B;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    padding-top: 7px;
+}
+
+.redes-sociales i:after{
+	color: #fff;
+}
+
+#footer .container {
+    border-bottom: 6px solid #FFB627;
+}
+.menu-copy-footer > li{
+	position: relative;
+}
+/* .menu-copy-footer > li:nth-child(1):after,
+.menu-copy-footer > li:nth-child(2):after,
+.menu-copy-footer > li:nth-child(3):after{
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 12px;
+	background-color: #888;
+} */
+
+.redes-sociales{
+	min-width: 163px
+}
+#footer a{
+	color: #000;
+}
+
+#footer ul,
+#footer ul li{
+	display: inline-block;
+}
+
+#footer ul,
+#footer ul li{
+	padding-left: 0;
+}
 
 .alignnone {
 	margin: 5px 20px 20px 0;
@@ -201,4 +358,12 @@ a img.aligncenter {
 	top: 5px;
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
+}
+
+.rayita {
+    border-left: 2px solid #000;
+}
+
+.btn-menu-lateral:after{
+    display: none !important;
 }

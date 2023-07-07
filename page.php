@@ -10,9 +10,14 @@ get_header();
 the_post();
 ?>
 <div class="row">
-	<div class="col-md-8 order-md-2 col-sm-12">
+	<div class="col-md-12 col-sm-12">
 		<div id="post-<?php the_ID(); ?>" <?php post_class( 'content' ); ?>>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
+			<div class="p-5">
+				<div><h1 class="entry-title mb-0"><?php echo get_the_title(); ?></h1></div>
+				<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
+			</div>
+
+			<div class="pb-5"><img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/bandera-titulos.jpg" alt="bandera-colombia"></div>
 			<?php
 				the_content();
 

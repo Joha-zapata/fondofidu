@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<?php wp_head(); ?>
+
+  <!-- our project just needs Font Awesome Solid + Brands -->
+  <link href="<?php echo get_template_directory_uri(); ?>/css/css/fontawesome.css" rel="stylesheet">
+  <link href="<?php echo get_template_directory_uri(); ?>/css/css/brands.css" rel="stylesheet">
+  <link href="<?php echo get_template_directory_uri(); ?>/css/css/solid.css" rel="stylesheet">
+
 </head>
 
 <?php
@@ -22,7 +28,7 @@
 
 <div id="wrapper">
 	<header>
-		<nav id="header" class="navbar navbar-expand-md <?php echo esc_attr( $navbar_scheme ); if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' fixed-top'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' fixed-bottom'; endif; if ( is_home() || is_front_page() ) : echo ' home'; endif; ?>">
+		<nav id="header" class="navbar navbar-expand-md container <?php echo esc_attr( $navbar_scheme ); if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' fixed-top'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' fixed-bottom'; endif; if ( is_home() || is_front_page() ) : echo ' home'; endif; ?>">
 			<div class="container">
 				<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php
@@ -37,6 +43,16 @@
 						endif;
 					?>
 				</a>
+
+				<div class="rayita ps-3  pe-2">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/mariposas.png" alt="mariposas">
+				</div>
+
+				<div>
+					<img src="<?php echo get_template_directory_uri(); ?>/img/Mintrabajo_2022.png" alt="mintrabajo">
+				</div>
+
+
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'fondofidu' ); ?>">
 					<span class="navbar-toggler-icon"></span>
@@ -54,19 +70,32 @@
 								'theme_location' => 'main-menu',
 							)
 						);
+					?>
 
-						if ( '1' === $search_enabled ) :
-					?>
-							<form class="search-form my-2 my-lg-0" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-								<div class="input-group">
-									<input type="text" name="s" class="form-control" placeholder="<?php esc_attr_e( 'Search', 'fondofidu' ); ?>" title="<?php esc_attr_e( 'Search', 'fondofidu' ); ?>" />
-									<button type="submit" name="submit" class="btn btn-outline-secondary"><?php esc_html_e( 'Search', 'fondofidu' ); ?></button>
-								</div>
-							</form>
-					<?php
-						endif;
-					?>
 				</div><!-- /.navbar-collapse -->
+
+				<div class="dropdown">
+				<button class="btn btn-light dropdown-toggle btn-menu-lateral" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<?php
+						// Loading WordPress Custom Menu (theme_location).
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'menu-lateral',
+								'container_class' => 'dropdown-menu dropdown-menu-end',
+								'items_wrap'      => '<ul>%3$s</ul>',
+							)
+						);
+					?>
+
+
+				</div>
+
+
+
+
 			</div><!-- /.container -->
 		</nav><!-- /#header -->
 	</header>
