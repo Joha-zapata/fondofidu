@@ -92,10 +92,18 @@
 
 
 				</div>
-
-
-
-
+				<div>
+					<?php
+					//get  and show user name logged
+					$current_user = wp_get_current_user();
+					if ( 0 == $current_user->ID ) {
+						// Not logged in.
+					} else {
+						// Logged in.
+						echo '<div class="user-name">Bienvenido: ' . $current_user->user_login . '</div>';
+					}
+					?>
+				</div>
 			</div><!-- /.container -->
 		</nav><!-- /#header -->
 		<div>
