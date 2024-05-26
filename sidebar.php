@@ -68,7 +68,7 @@ if ( is_active_sidebar( 'primary_widget_area' ) || is_archive() || is_single() )
 				</ul>
 				<?php
 				//Get and show firs recently post
-				$recentposts_query = new WP_Query( array( 'posts_per_page' => 1 ) );
+				$recentposts_query = new WP_Query( array( 'posts_per_page' => 5 ) );
 				if ( $recentposts_query->have_posts() ) :
 					while ( $recentposts_query->have_posts() ) :
 						$recentposts_query->the_post();
