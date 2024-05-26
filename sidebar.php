@@ -66,6 +66,23 @@ if ( is_active_sidebar( 'primary_widget_area' ) || is_archive() || is_single() )
 						endif;
 					?>
 				</ul>
+				<?php
+				//Get and show firs recently post
+				$recentposts_query = new WP_Query( array( 'posts_per_page' => 1 ) );
+				if ( $recentposts_query->have_posts() ) :
+					while ( $recentposts_query->have_posts() ) :
+						$recentposts_query->the_post();
+						?>
+						<div class="recent-post">
+							<h3><?php esc_html_e( 'Last Post', 'fondofidu' ); ?></h3>
+							<h4><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
+							<p><?php the_excerpt(); ?></p>
+						</div>
+						<?php
+					endwhile;
+				endif;
+				wp_reset_postdata();
+				?>
 			</div><!-- /#primary-two -->
 		</div>
 	<?php
