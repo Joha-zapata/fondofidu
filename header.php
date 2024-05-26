@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<?php wp_head(); ?>
+
+  <!-- our project just needs Font Awesome Solid + Brands -->
+  <link href="<?php echo get_template_directory_uri(); ?>/css/css/fontawesome.css" rel="stylesheet">
+  <link href="<?php echo get_template_directory_uri(); ?>/css/css/brands.css" rel="stylesheet">
+  <link href="<?php echo get_template_directory_uri(); ?>/css/css/solid.css" rel="stylesheet">
+
 </head>
 
 <?php
@@ -22,7 +28,7 @@
 
 <div id="wrapper">
 	<header>
-		<nav id="header" class="navbar navbar-expand-md <?php echo esc_attr( $navbar_scheme ); if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' fixed-top'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' fixed-bottom'; endif; if ( is_home() || is_front_page() ) : echo ' home'; endif; ?>">
+		<nav id="header" class="navbar navbar-expand-md container <?php echo esc_attr( $navbar_scheme ); if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' fixed-top'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' fixed-bottom'; endif; if ( is_home() || is_front_page() ) : echo ' home'; endif; ?>">
 			<div class="container">
 				<a class="navbar-brand" href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php
@@ -92,6 +98,15 @@
 
 			</div><!-- /.container -->
 		</nav><!-- /#header -->
+		<div>
+			<script>
+				//Get the current date
+				var date = new Date();
+				var year = date.getFullYear();
+				document.getElementById("date").innerHTML = year;
+			</script>
+			<div id="date"></div>
+		</div>
 	</header>
 
 	<main id="main" class="container"<?php if ( isset( $navbar_position ) && 'fixed_top' === $navbar_position ) : echo ' style="padding-top: 100px;"'; elseif ( isset( $navbar_position ) && 'fixed_bottom' === $navbar_position ) : echo ' style="padding-bottom: 100px;"'; endif; ?>>
