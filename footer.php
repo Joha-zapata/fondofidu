@@ -15,6 +15,31 @@
 		</main><!-- /#main -->
 		<footer id="footer">
 			<div class="container">
+				<?php
+				// get and show all blog categories
+				$categories = get_categories();
+				if ( ! empty( $categories ) ) :
+				?>
+					<div class="row">
+						<div class="col-md-12">
+							<h2><?php esc_html_e( 'Categories', 'fondofidu' ); ?></h2>
+							<ul class="list-group list-group-flush">
+								<?php
+									foreach ( $categories as $category ) :
+								?>
+									<li class="list-group-item">
+										<a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>" title="<?php echo esc_attr( sprintf( esc_html__( 'View all posts in %s', 'fondofidu' ), $category->name ) ); ?>"><?php echo esc_html( $category->name ); ?></a>
+									</li>
+								<?php
+									endforeach;
+								?>
+							</ul>
+						</div>
+					</div>
+				<?php
+				endif;
+				?>
+				
 				<div class="row">
 					<div class="col-md-6">
 						<p><?php printf( esc_html__( '&copy; %1$s %2$s. All rights reserved.', 'fondofidu' ), wp_date( 'Y' ), get_bloginfo( 'name', 'display' ) ); ?></p>
